@@ -3,7 +3,14 @@
 # Licensed under the MIT License. See LICENSE in the project root for license information.
 #-----------------------------------------------------------------------------------------
 
-FROM golang:1
+FROM centos:7
+WORKDIR /usr/local/src/
+RUN yum -y update && yum clean all && \
+   wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz && \
+   tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz && \
+   export PATH=$PATH:/usr/local/go/bin && \
+   
+
 
 RUN go get -u -v \
     github.com/mdempsky/gocode \
