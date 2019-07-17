@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db: #容器名字 真实的名字 是 当前目录?_db_1
+    image: mysql:5.7
+    ports:
+        - 3306:3306
+    volumes:
+        - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1  #必须使用1 才行,
+    networks:
+        - my-bridge
+volumes:
+    mysql-data:    # 这样设置表示一个卷标 ,上面的挂载, 不知道挂载到哪里了
+networks:
+  my-bridge:
+    driver: bridge
