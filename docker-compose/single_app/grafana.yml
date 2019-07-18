@@ -6,7 +6,8 @@ services:
     ports:
       - 3000:3000
     environment:
-      GF_INSTALL_PLUGINS: https://codeload.github.com/grafana/clock-panel/legacy.zip/bb466d0682d58af659b018748d53c0d3b69a8377;clock-panel,https://codeload.github.com/grafana/simple-json-datasource/legacy.zip/87ced44c4587eae39eeedcbd4b2936593724de16;simple-json-datasource
+      GF_INSTALL_PLUGINS: grafana-simple-json-datasource 
+      # 卡的话,使用url地址来;后面是别名 然后用,隔开表示另外一个插件 https://codeload.github.com/grafana/clock-panel/legacy.zip/bb466d0682d58af659b018748d53c0d3b69a8377;clock-panel,https://codeload.github.com/grafana/simple-json-datasource/legacy.zip/87ced44c4587eae39eeedcbd4b2936593724de16;simple-json-datasource
       GF_SECURITY_ADMIN_PASSWORD: admin
     volumes:
       - ~/data/grafana:/var/lib/grafana
